@@ -1,8 +1,8 @@
 import React from 'react'
 import NewTodoForm from './NewTodoForm'
 import TodoListItem from './TodoListItem'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
-import './TodoList.css'
 import { loadTodos, removeTodoRequest, updateTodoRequest } from './thunks'
 import {
   getTodos,
@@ -12,13 +12,15 @@ import {
 } from './selectors'
 import { useEffect } from 'react'
 
+const ListWrapper = styled.div`
+  max-width: 700px;
+  margin: auto;
+`
+
 const TodoList = ({
-  todos = [],
   onRemovePressed,
   onCompletePressed,
   startLoadingTodos,
-  getCompletedTodos,
-  getIncompleteTodos,
   completeTodos,
   incompleteTodos,
   isLoading
@@ -26,9 +28,10 @@ const TodoList = ({
   useEffect(() => {
     startLoadingTodos()
   }, [])
+
   const loading = <div>Loading todos...</div>
   const content = (
-    <div className="list-wrapper">
+    <ListWrapper>
       <NewTodoForm />
       <h3>Pendentes</h3>
       {incompleteTodos.map((todo, i) => (
@@ -48,7 +51,7 @@ const TodoList = ({
           onCompletePressed={onCompletePressed}
         />
       ))}
-    </div>
+    </ListWrapper>
   )
 
   return isLoading ? loading : content
