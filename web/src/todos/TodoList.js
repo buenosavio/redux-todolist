@@ -29,9 +29,9 @@ const TodoList = ({
   const loading = <div>Loading todos...</div>
   const content = (
     <div className="list-wrapper">
-      <h3>Complete:</h3>
       <NewTodoForm />
-      {completeTodos.map((todo, i) => (
+      <h3>Pendentes</h3>
+      {incompleteTodos.map((todo, i) => (
         <TodoListItem
           key={i}
           todo={todo}
@@ -39,8 +39,8 @@ const TodoList = ({
           onCompletePressed={onCompletePressed}
         />
       ))}
-      <h3>Incomplete:</h3>
-      {incompleteTodos.map((todo, i) => (
+      <h3>Finalizados:</h3>
+      {completeTodos.map((todo, i) => (
         <TodoListItem
           key={i}
           todo={todo}

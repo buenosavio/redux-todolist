@@ -13,7 +13,7 @@ const NewTodoForm = ({ todos, onCreatePressed }) => {
       <input
         className="new-todo-input"
         type="text"
-        placeholder="Type your new todo here"
+        placeholder="Informe sua tarefa!"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />
@@ -27,7 +27,7 @@ const NewTodoForm = ({ todos, onCreatePressed }) => {
           }
         }}
       >
-        Create Todo
+        Salvar
       </button>
     </div>
   )
